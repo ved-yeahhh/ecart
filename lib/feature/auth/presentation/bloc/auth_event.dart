@@ -16,3 +16,7 @@ class AuthSignInRequested extends AuthEvent {
   @override
   List<Object?> get props => [email,password];
 }
+
+class SignInWithGoogleRequested extends AuthEvent{
+
+}

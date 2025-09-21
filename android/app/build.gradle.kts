@@ -24,7 +24,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.ecart"
-        minSdk = 23 // ✅ required by firebase_auth
+        minSdk = flutter.minSdkVersion // ✅ required by firebase_auth
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
