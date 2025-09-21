@@ -13,7 +13,7 @@ jobs:
     steps:
       # Checkout repo
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Setup Java (needed for Android build)
       - name: Setup Java
@@ -22,11 +22,12 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      # Setup Flutter (stable)
+      # Setup Flutter (use the same version as local: 3.35.4 stable)
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0' # match your local version
+          flutter-version: '3.35.4'
+          channel: 'stable'
 
       # Cache dependencies
       - name: Cache Pub dependencies
@@ -35,6 +36,12 @@ jobs:
           path: ~/.pub-cache
           key: ${{ runner.os }}-pub-${{ hashFiles('pubspec.lock') }}
           restore-keys: ${{ runner.os }}-pub-
+
+      # Verify Flutter & Dart versions
+      - name: Check Flutter & Dart version
+        run: |
+          flutter --version
+          dart --version
 
       # Install dependencies
       - name: Install dependencies
@@ -50,4 +57,3 @@ jobs:
         with:
           name: app-release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-
