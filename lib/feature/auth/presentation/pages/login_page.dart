@@ -50,9 +50,9 @@ class _LoginPageState extends State<LoginPage> {
               child: BlocConsumer<AuthBloc, AuthState>(
                 listener: (context, state) {
                   if (state is AuthAuthenticated) {
-                    WidgetsBinding.instance.addPostFrameCallback((_) {
-                      Navigator.pushReplacementNamed(context, "/homepage");
-                    });
+                    Navigator.pushReplacementNamed(context, "/homepage");
+                  } else if (state is AuthUnauthenticated) {
+                    Navigator.pushReplacementNamed(context, "/login");
                   } else if (state is AuthError) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(state.message)),

@@ -1,4 +1,5 @@
 import 'package:ecart/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:ecart/feature/auth/presentation/bloc/auth_event.dart';
 import 'package:ecart/feature/auth/presentation/pages/login_page.dart';
 import 'package:ecart/feature/onboarding/data/datasources/onboarding_local_datasource.dart';
 import 'package:ecart/feature/onboarding/data/repository/onboarding_repository_impl.dart';
@@ -34,7 +35,7 @@ void main() async {
   final hasSeenOnboarding = await repository.isOnboardingSeen();
    FirebaseAuth auth = FirebaseAuth.instance ;
   runApp(BlocProvider(
-    create: (context) => AuthBloc(auth: auth),
+    create: (context) => AuthBloc(auth: auth)..add(AppStarted()),
     child: MyApp(
       hasSeenOnboarding: hasSeenOnboarding,
       saveOnboardingSeen: saveOnboardingSeen,
@@ -81,6 +82,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+     body: Center(child: Text("Homepage")),
+    );
   }
 }
