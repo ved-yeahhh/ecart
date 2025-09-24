@@ -12,7 +12,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<SignInWithGoogleRequested>(_signInWithGoogle);
   }
 
-  Future<void> _onAppStarted(AppStarted event, Emitter<AuthState> emit) async{
+  Future<void> _onAppStarted(AppStarted event, Emitter<AuthState> emit) async {
     final user = auth.currentUser;
     if (user != null) {
       emit(AuthAuthenticated(user.uid));
@@ -20,7 +20,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthUnauthenticated());
     }
   }
-  
 
   Future<void> _onsignInRequested(
       AuthSignInRequested event, Emitter<AuthState> emit) async {
@@ -42,14 +41,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final google = GoogleSignIn.instance;
 
       final account = await google.authenticate();
-      // if (account == null) {
-      //   emit(AuthUnauthenticated());
-      //   return;
-      // }
+      if (account == null) {
+        emit(AuthUnauthenticated());
+        return;
+      }
 
-      final googleAuth =  account.authentication;
+      final googleAuth = account.authentication;
       final idToken = googleAuth.idToken;
-
       if (idToken == null) {
         emit(AuthError("Google idToken is null"));
         emit(AuthUnauthenticated());
