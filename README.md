@@ -25,26 +25,9 @@ This project is designed as a learning and reference implementation for develope
 
 ---
 
-## 📁 Folder Structure
-
-lib/
-├── main.dart
-├── src/
-│ ├── blocs/
-│ ├── models/
-│ ├── repositories/
-│ ├── screens/
-│ │ ├── onboarding/
-│ │ ├── auth/
-│ │ └── home/
-│ └── widgets/
-└── utils/
-
-
----
-
 🖼️ Preview of Screens
 https://github.com/user-attachments/assets/160357f8-c29a-42c0-97cc-06ff9fe63158
+
 
 
 
