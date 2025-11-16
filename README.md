@@ -2,7 +2,7 @@
 
 ## 🚀 Overview
 **E-Cart App** is a demo Flutter application showcasing modern mobile app architecture with **authentication**, an **onboarding experience**, and **BLoC (Business Logic Component)** for efficient state management.  
-This project is designed as a learning and reference implementation for developers building scalable, maintainable Flutter apps.
+
 
 ---
 
@@ -27,6 +27,7 @@ This project is designed as a learning and reference implementation for develope
 
 🖼️ Preview of Screens
 https://github.com/user-attachments/assets/160357f8-c29a-42c0-97cc-06ff9fe63158
+
 
 
 
