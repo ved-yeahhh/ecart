@@ -20,13 +20,14 @@ This project is designed as a learning and reference implementation for develope
 - **Flutter** (latest stable version)  
 - **Dart**  
 - **BLoC / flutter_bloc** for state management  
-- **Firebase Authentication** *(optional — if used)*  
+- **Firebase Authentication**  
 - **Shared Preferences** for local storage  
 
 ---
 
 🖼️ Preview of Screens
 https://github.com/user-attachments/assets/160357f8-c29a-42c0-97cc-06ff9fe63158
+
 
 
 
